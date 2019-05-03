@@ -14,9 +14,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.springmvc.eshop.domain.EshopUser;
 import com.springmvc.eshop.service.RegistrationService;
 
+/**
+ * 
+ * @author sankar prasad 
+ * Purpose: Sample SPring MVC flow
+ *
+ */
+
 @Controller
 public class RegistrationController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(RegistrationController.class);
 
 	@Autowired
@@ -31,10 +38,10 @@ public class RegistrationController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String postRegistration(@Valid EshopUser eshopUser,BindingResult bindingResult) {
+	public String postRegistration(@Valid EshopUser eshopUser, BindingResult bindingResult) {
 
-		logger.info("user enterd data:"+eshopUser);
-		if(bindingResult.hasErrors()) {
+		logger.info("user enterd data:" + eshopUser);
+		if (bindingResult.hasErrors()) {
 			logger.info("user didnt filled the entire form required...");
 			return "register";
 		}
